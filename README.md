@@ -17,4 +17,4 @@ Aasan AI is a smart AI assistant designed to help everyone in:
 - Voice Support
 - Mobile Friendly
 
-Made with ❤️ by AasanAIOfficial
+Powered by Aasan AI
