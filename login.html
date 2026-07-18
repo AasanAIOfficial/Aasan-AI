@@ -52,43 +52,49 @@ a{
 color:#38bdf8;
 text-decoration:none;
 }
-</style>
+<script type="module">
 
-</head>
-<body>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.16.0/firebase-auth.js";
 
-<div class="box">
+const firebaseConfig = {
+  apiKey: "AIzaSyAUulx-T2-Crx3B6iTbBUSFkX7TeR4CTRY",
+  authDomain: "qevira-ai.firebaseapp.com",
+  projectId: "qevira-ai",
+  storageBucket: "qevira-ai.firebasestorage.app",
+  messagingSenderId: "123658483544",
+  appId: "1:123658483544:web:c8ea77df216c90461b172d"
+};
 
-<h2>Login</h2>
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
-<input type="email" placeholder="Email">
+window.login = async function () {
 
-<input type="password" placeholder="Password">
+  let email = document.querySelector('input[type="email"]').value.trim();
+  let password = document.querySelector('input[type="password"]').value;
 
-<button onclick="login()">Login</button>
+  if(email=="" || password==""){
+    alert("Please fill all fields");
+    return;
+  }
 
-<br><br>
+  try {
 
-<a href="index.html">⬅ Back to Home</a>
+    await signInWithEmailAndPassword(auth, email, password);
 
-</div>
-<script>
-function login(){
+    alert("Login Successful");
 
-let email = document.querySelector('input[type="email"]').value;
-let password = document.querySelector('input[type="password"]').value;
+    window.location.href = "index.html";
 
-let savedEmail = localStorage.getItem("userEmail");
-let savedPassword = localStorage.getItem("userPassword");
+  } catch(error) {
 
-if(email==savedEmail && password==savedPassword){
-alert("Login Successful");
-window.location.href="index.html";
-}else{
-alert("Wrong Email or Password");
+    alert(error.message);
+
+  }
+
 }
 
-}
-</script>
+  </script>
 </body>
 </html>
