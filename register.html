@@ -99,7 +99,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-function register(){
+window.register = function () {
 
 let name=document.querySelector('input[type="text"]').value;
 
