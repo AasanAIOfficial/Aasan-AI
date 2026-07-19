@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Qevira AI Chat</title>
+<style>
+body{margin:0;font-family:Arial;background:#eef2ff}
+header{background:#111827;color:#fff;padding:16px;text-align:center;font-size:24px;font-weight:bold}
+#chat{height:60vh;overflow:auto;background:#fff;margin:15px;border-radius:12px;padding:15px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.msg{padding:10px;border-radius:10px;margin:8px 0;max-width:80%}
+.user{background:#2563eb;color:#fff;margin-left:auto}
+.ai{background:#e5e7eb}
+.bottom{display:flex;gap:8px;padding:15px}
+input{flex:1;padding:12px;border-radius:8px;border:1px solid #ccc}
+button{padding:12px 18px;border:none;border-radius:8px;cursor:pointer}
+.send{background:#2563eb;color:#fff}
+.clear{background:#ef4444;color:#fff}
+</style>
+</head>
+<body>
+<header>🤖 Qevira AI Chat</header>
+<div id="chat">
+<div class="msg ai">Hello! I'm Qevira AI. Gemini integration is the next step.</div>
+</div>
+<div class="bottom">
+<input id="message" placeholder="Type your message...">
+<button class="send" onclick="sendMessage()">Send</button>
+<button class="clear" onclick="clearChat()">Clear</button>
+</div>
+<script>
+function sendMessage(){
+const input=document.getElementById("message");
+const text=input.value.trim();
+if(!text)return;
+const chat=document.getElementById("chat");
+chat.innerHTML+=`<div class="msg user">${text}</div>`;
+setTimeout(()=>{
+chat.innerHTML+=`<div class="msg ai">Gemini AI will be connected in the next step.</div>`;
+chat.scrollTop=chat.scrollHeight;
+},300);
+input.value="";
+chat.scrollTop=chat.scrollHeight;
+}
+function clearChat(){
+document.getElementById("chat").innerHTML='<div class="msg ai">Chat cleared.</div>';
+}
+</script>
+</body>
+</html>
