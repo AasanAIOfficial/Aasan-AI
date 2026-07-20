@@ -9,3 +9,15 @@ const QeviraBrain = {
     name: "Qevira AI",
     status: "Learning",
 };
+// ======================================
+// Qevira AI - Understand User
+// ======================================
+
+function understandUser(message) {
+    return {
+        originalMessage: message,
+        mood: "Unknown",
+        intent: "Unknown",
+        needsClarification: false
+    };
+}
