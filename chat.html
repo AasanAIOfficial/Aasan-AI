@@ -39,7 +39,16 @@ if(!text)return;
 const chat=document.getElementById("chat");
 chat.innerHTML+=`<div class="msg user">${text}</div>`;
 setTimeout(()=>{
-chat.innerHTML+=`<div class="msg ai">Gemini AI will be connected in the next step.</div>`;
+chat.innerHTML += `
+<div class="msg ai">
+<b>🧠 Brain Analysis</b><br><br>
+
+Emotion : ${brainData.emotion.emotion}<br>
+
+Strength : ${brainData.emotion.strength}<br>
+
+Intent : ${brainData.intent}
+</div>`;
 chat.scrollTop=chat.scrollHeight;
 },300);
 input.value="";
