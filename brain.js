@@ -36,8 +36,7 @@ function detectEmotion(message){
         message.includes("happy") ||
         message.includes("very happy") ||
         message.includes("so happy") ||
-        message.includes("extremely 
-     happy") ||
+        message.includes("extremely happy") ||
         message.includes("khush") ||
         message.includes("😊") ||
         message.includes("😁")
